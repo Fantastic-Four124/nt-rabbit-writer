@@ -1,8 +1,8 @@
 # server.rb
 require 'sinatra'
-Thread.new {
-  require_relative 'writer_server'
-}
+#Thread.new {
+#  require_relative 'writer_server'
+#}
 
 # DB Setup
 #Mongoid.load! "config/mongoid.yml"
