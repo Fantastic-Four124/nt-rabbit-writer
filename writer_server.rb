@@ -44,8 +44,8 @@ class WriterServer
   end
 
   def process(original)
-    num = num++
-    puts "started processing tweet: #{num}"
+    num = num + 1
+    puts "started processing tweet: #{num.to_s}"
     hydrate_original = JSON.parse(original)
     tweet = Tweet.new(
       contents: hydrate_original["contents"],
@@ -55,8 +55,8 @@ class WriterServer
     },
       mentions: hydrate_original["mentions"]
     )
+    puts "finished processing tweet: #{num.to_s}"
     tweet.save
-    puts "finished processing tweet: #{num}"
   end
 
 end
