@@ -16,6 +16,7 @@ Mongoid.load! "config/mongoid.yml"
 
 class WriterServer
   def initialize(id)
+    puts "initializing"
     @connection = Bunny.new(id)
     @connection.start
     @channel = @connection.create_channel
@@ -38,9 +39,8 @@ class WriterServer
   attr_reader :channel, :exchange, :queue, :connection, :exchange2, :queue2
 
   def subscribe_to_queue
-    queue.subscribe(block: false) do |_delivery_info, properties, payload|
-    puts payload
-     # process(payload)
+    queue.subscribe(block: true) do |_delivery_info, properties, payload|
+      process(payload)
     end
   end
 
