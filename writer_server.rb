@@ -13,6 +13,8 @@ require_relative 'models/tweet'
 
 Mongoid.load! "config/mongoid.yml"
 
+num = 0
+
 class WriterServer
   def initialize(id)
     @connection = Bunny.new(id)
@@ -42,7 +44,8 @@ class WriterServer
   end
 
   def process(original)
-    puts 'processing tweet'
+    num = num++
+    puts "started processing tweet: #{num}"
     hydrate_original = JSON.parse(original)
     tweet = Tweet.new(
       contents: hydrate_original["contents"],
@@ -53,6 +56,7 @@ class WriterServer
       mentions: hydrate_original["mentions"]
     )
     tweet.save
+    puts "finished processing tweet: #{num}"
   end
 
 end
