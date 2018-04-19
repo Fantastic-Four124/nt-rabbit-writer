@@ -39,7 +39,8 @@ class WriterServer
 
   def subscribe_to_queue
     queue.subscribe(block: false) do |_delivery_info, properties, payload|
-      process(payload)
+    puts payload
+     # process(payload)
     end
   end
 
