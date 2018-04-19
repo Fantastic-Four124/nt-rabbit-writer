@@ -1,1 +1,2 @@
-$stdout.sync = true
+require './service'
+run Sinatra::Application
