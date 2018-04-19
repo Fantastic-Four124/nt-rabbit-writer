@@ -55,8 +55,8 @@ class WriterServer
     },
       mentions: hydrate_original["mentions"]
     )
-    puts "finished processing tweet: #{@num.to_s}"
     tweet.save
+    puts "finished processing tweet: #{@num.to_s}"
   end
 
 end
