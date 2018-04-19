@@ -38,7 +38,7 @@ class WriterServer
   attr_reader :channel, :exchange, :queue, :connection, :exchange2, :queue2
 
   def subscribe_to_queue
-    queue.subscribe(block: true) do |_delivery_info, properties, payload|
+    queue.subscribe(block: false) do |_delivery_info, properties, payload|
       process(payload)
     end
   end
