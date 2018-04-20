@@ -63,9 +63,9 @@ class WriterServer
 end
 
 
-begin
-  server = WriterServer.new(ENV["RABBITMQ_BIGWIG_RX_URL"])
-  server.start('writer_queue')
-rescue Interrupt => _
-  server.stop
-end
+#begin
+#  server = WriterServer.new(ENV["RABBITMQ_BIGWIG_RX_URL"])
+#  server.start('writer_queue')
+#rescue Interrupt => _
+#  server.stop
+#end
