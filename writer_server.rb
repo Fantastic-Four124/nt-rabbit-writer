@@ -47,7 +47,9 @@ class WriterServer
   def process(original)
     @num = @num + 1
     puts "started processing tweet: #{@num.to_s}"
+    puts original
     hydrate_original = JSON.parse(original)
+    puts hydrate_original
     tweet = Tweet.new(
       contents: hydrate_original["contents"],
       date_posted: hydrate_original["date_posted"],
