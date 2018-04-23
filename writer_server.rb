@@ -54,7 +54,7 @@ class WriterServer
       contents: hydrate_original["contents"],
       date_posted: hydrate_original["date_posted"],
       user: {username: hydrate_original["user"]["username"],
-      id: hydrate_original["user"]["user_id"]
+      id: hydrate_original["user"]["id"]
     },
       mentions: hydrate_original["mentions"]
     )
